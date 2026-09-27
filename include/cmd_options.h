@@ -23,9 +23,12 @@ public:
     std::string GetInputFile() const { return inputFile_; }
     std::string GetOutputFile() const { return outputFile_; }
     std::string GetPassword() const { return password_; }
+    bool IsHelpRequested() const { return helpRequested_; }
 
 private:
     COMMAND_TYPE command_;
+    bool helpRequested_ = false;
+
     const std::unordered_map<std::string_view, COMMAND_TYPE> commandMapping_ = {
         {"encrypt", ProgramOptions::COMMAND_TYPE::ENCRYPT},
         {"decrypt", ProgramOptions::COMMAND_TYPE::DECRYPT},
